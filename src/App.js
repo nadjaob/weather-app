@@ -18,12 +18,12 @@ const App = () => {
   useEffect(() => {
     const getData = async () => {
       const { data } = await axios.get(`/London,UK?key=${key}`) // * <-- replace with your endpoint
-      console.log(data.currentConditions.conditions)
+      console.log(data)
       setWeather(data.currentConditions.conditions)
       setRegion(data.address)
     }
     getData()
-  })
+  }, [])
 
   return (
     <main>
