@@ -1,3 +1,18 @@
+@import './components/ChangeLocation.scss';
+@import './components/SetRegion.scss';
+@import './components/CurrentWeather.scss';
+
 * {
   box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
