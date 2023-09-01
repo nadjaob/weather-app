@@ -1,4 +1,4 @@
-# ![] Is it sweater weather?
+# Is it sweater weather?
 
 ## A simple react application that displays whether or not it is time to wear a sweater. 
 
