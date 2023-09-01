@@ -27,7 +27,7 @@ const App = () => {
 
   return (
     <main>
-      <h1> Is It Sweater Weather? </h1>
+      <h1> Is It Time for Long Pants? </h1>
       <SetRegion></SetRegion>
       <CurrentWeather></CurrentWeather>
       <ChangeLocation></ChangeLocation>
