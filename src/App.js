@@ -7,9 +7,9 @@ import ChangeLocation from './components/ChangeLocation'
 import CurrentWeather from './components/CurrentWeather'
 import SetRegion from './components/SetRegion'
 
-const App = () => {
+//Key
 
-  const key = 'TW5ET69J7J5FLRR28PWGD76GT'
+const App = () => {
 
   const [ region, setRegion ] = useState()
   const [ date, setDate ] = useState()
@@ -20,6 +20,7 @@ const App = () => {
   const [ humidity, setHumidity ] = useState()
 
   useEffect(() => {
+    const key = process.env.REACT_APP_API_KEY
     const getData = async () => {
       const { data } = await axios.get(`/London,UK?key=${key}`) // * <-- replace with your endpoint
       console.log(data)
