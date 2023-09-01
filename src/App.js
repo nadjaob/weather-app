@@ -12,25 +12,46 @@ const App = () => {
   const key = 'TW5ET69J7J5FLRR28PWGD76GT'
 
   const [ region, setRegion ] = useState()
-  const [ weather, setWeather ] = useState()
+  const [ date, setDate ] = useState()
   const [ time, setTime ] = useState()
+
+  const [ weather, setWeather ] = useState()
+  const [ temperature, setTemperature ] = useState()
+  const [ humidity, setHumidity ] = useState()
 
   useEffect(() => {
     const getData = async () => {
       const { data } = await axios.get(`/London,UK?key=${key}`) // * <-- replace with your endpoint
       console.log(data)
-      setWeather(data.currentConditions.conditions)
+      console.log(data.currentConditions.conditions)
+
       setRegion(data.address)
+      setDate(data.days[0].datetime)
+      setTime(data.currentConditions.datetime)
+
+      setWeather(data.currentConditions.conditions)
+      setTemperature(data.currentConditions.temp)
+      setHumidity(data.currentConditions.humidity)
     }
     getData()
   }, [])
 
+  console.log(weather)
+
   return (
     <main>
       <h1> Is It Time for Long Pants? </h1>
-      <SetRegion></SetRegion>
-      <CurrentWeather></CurrentWeather>
-      <ChangeLocation></ChangeLocation>
+      <SetRegion
+      />
+      <CurrentWeather
+        region= { region }
+        date = { date }
+        time = { time }
+        temperature={ temperature}
+        weather= { weather }
+        humidity = { humidity }
+      />
+      <ChangeLocation/>
     </main>
 
   )
