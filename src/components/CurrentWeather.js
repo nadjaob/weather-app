@@ -21,7 +21,7 @@ export default function CurrentWeather( { temperature, time, weather, humidity, 
           : 
           <div className='answer'>
             <h1>Yes! </h1>
-            <img src={manSki} alt="Man on the beach waiting for forecast" />ß
+            <img src={manSki} alt="Man on the beach waiting for forecast" />
           </div>}
       </div> 
       
