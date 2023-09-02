@@ -4,3 +4,9 @@
   font-weight: 800;
   color: #010e1a !important;
 }
+
+%flex-column-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

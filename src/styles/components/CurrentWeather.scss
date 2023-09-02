@@ -1,23 +1,28 @@
-.weather-display{
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+.weather-details-left {
+  @extend %flex-column-center;
+  align-items: flex-end;
+}
+
+.weather-details-right {
+  @extend %flex-column-center;
+}
+
+.answer {
   position: relative;
   img {
-    max-width: 300px;
+    max-width: 90%;
+    margin: 0 auto;
+    display: block;
   }
-  .answer-text {
+  p {
     position: absolute;
-    font-size: 220px;
+    font-size: 210px;
     font-weight: 900;
     opacity: 0.2;
     z-index: -1;
-    top: -120px;
+    top: -70px;
     letter-spacing: -15px;
+    width: 100%;
+    text-align: center;
   }
-}
-.answer{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }

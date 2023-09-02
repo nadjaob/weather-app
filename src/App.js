@@ -51,7 +51,9 @@ const App = () => {
         weather= { weather }
         humidity = { humidity }
       />
-      <ChangeLocation/>
+      <ChangeLocation
+        temperature={temperature}
+      />
     </main>
   )
 }
