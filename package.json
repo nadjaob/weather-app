@@ -35,5 +35,8 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline"
+  "proxy": "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline",
+  "devDependencies": {
+    "dotenv": "^16.3.1"
+  }
 }
