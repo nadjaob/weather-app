@@ -22,11 +22,11 @@ const App = () => {
   useEffect(() => {
     const key = process.env.REACT_APP_API_KEY
     const getData = async () => {
-      const { data } = await axios.get(`/Lagos?key=${key}`) // * <-- replace with your endpoint
+      const { data } = await axios.get(`/vancouver?key=${key}`) // * <-- replace with your endpoint
       console.log(data)
       console.log(data.currentConditions.conditions)
 
-      setRegion(data.address)
+      setRegion(data.resolvedAddress)
       setDate(data.days[0].datetime)
       setTime(data.currentConditions.datetime)
 
@@ -41,7 +41,7 @@ const App = () => {
 
   return (
     <main>
-      <h1>Is It Time for Long Pants?</h1>
+      <h1>Is It Time for The Beach?</h1>
       <SetRegion />
       <CurrentWeather
         region= { region }
@@ -50,9 +50,6 @@ const App = () => {
         temperature={ temperature}
         weather= { weather }
         humidity = { humidity }
-      />
-      <ChangeLocation
-        temperature={temperature}
       />
     </main>
   )
