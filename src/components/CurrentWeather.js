@@ -1,3 +1,7 @@
+import manBeach from '../images/man-beach.png'
+import manSki from '../images/man-on-ski.png'
+import manHandsUp from '../images/man-hands-up.png'
+
 export default function CurrentWeather( { temperature, time, weather, humidity, date, region }) {
   console.log('weather ', weather)
   return (
@@ -8,7 +12,7 @@ export default function CurrentWeather( { temperature, time, weather, humidity, 
         <h3>{time}</h3>
       </div>
       <div className="weather-img">
-        <img src="#" alt="weather image" />
+        <img src={manBeach} alt="Man on the beach waiting for forecast" />
       </div>
       <div className="weather-details">
         <h3>Temperature: {temperature}</h3>

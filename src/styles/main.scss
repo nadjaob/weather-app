@@ -2,17 +2,30 @@
 @import './components/SetRegion.scss';
 @import './components/CurrentWeather.scss';
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
 * {
   box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
 
 body {
   display: flex;
   justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle, rgba(143,191,241,1) 0%, rgba(33,133,237,1) 83%);
+  min-height: 100vh;
+  margin: 0;
 }
 
 main {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 800px;
+}
+
+h1 {
+  font-size: 3rem;
+  
 }
