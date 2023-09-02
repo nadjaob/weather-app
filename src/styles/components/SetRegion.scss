@@ -1,5 +1,21 @@
 .set-region{
   display: flex;
-  justify-content: space-between;
-  margin: 1rem; 
+  justify-content: center;
+  gap: 6px;
+  margin: 20px 0 40px;
+  .form-select {
+    width: auto;
+    border: 2px solid #010e1a;
+    font-weight: 800;
+    &:focus {
+      box-shadow: none;
+    }
+  }
+  .form-control {
+    @extend %button-styling;
+    &:focus {
+      box-shadow: none;
+    }
+  }
+  
 }

@@ -1,0 +1,7 @@
+.button-styling {
+  @extend %button-styling;
+  background-color: #fff;
+  &hover {
+    background-color: #fff;
+  }
+}

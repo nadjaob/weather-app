@@ -41,22 +41,18 @@ const App = () => {
 
   return (
     <main>
-      <h1> Is It Time for Long Pants? </h1>
-      <section className='container'>
-        <SetRegion
-        />
-        <CurrentWeather
-          region= { region }
-          date = { date }
-          time = { time }
-          temperature={ temperature}
-          weather= { weather }
-          humidity = { humidity }
-        />
-        <ChangeLocation/>
-      </section>
+      <h1>Is It Time for Long Pants?</h1>
+      <SetRegion />
+      <CurrentWeather
+        region= { region }
+        date = { date }
+        time = { time }
+        temperature={ temperature}
+        weather= { weather }
+        humidity = { humidity }
+      />
+      <ChangeLocation/>
     </main>
-
   )
 }
 

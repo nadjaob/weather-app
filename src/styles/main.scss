@@ -1,12 +1,14 @@
+@import './partials/variables.scss';
 @import './components/ChangeLocation.scss';
 @import './components/SetRegion.scss';
 @import './components/CurrentWeather.scss';
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+// FONT
+@import url('https://fonts.googleapis.com/css2?family=Akatab:wght@400;500;600;700;800;900&display=swap');
 
 * {
-  box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Akatab', sans-serif;
+  color: #010e1a !important;
 }
 
 body {
@@ -22,10 +24,22 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 800px;
 }
 
 h1 {
-  font-size: 3rem;
-  
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+h3 {
+  font-size: calc(0.8rem + .6vw);
+  font-weight: 900;
+}
+
+@media (min-width: 992px) {
+  main {
+    width: 800px;
+  }
 }

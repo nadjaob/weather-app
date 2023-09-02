@@ -1,5 +1,8 @@
 export default function ChangeLocation(){
   return (
-    <button> Go somewhere sunnier </button>
+    <div>
+      <button className="btn btn-outline-dark button-styling">Go somewhere sunnier</button>
+    </div>
+    
   )
 }
