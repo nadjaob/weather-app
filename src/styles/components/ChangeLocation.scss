@@ -1,9 +1,7 @@
 .change-location {
+  position: relative;
+  top: 60px;
   .button-styling {
     @extend %button-styling;
-    background-color: #fff;
-    &:hover {
-      background-color: #fff;
-    }
   }
 }

@@ -1,27 +1,38 @@
-export default function SetRegion (){
+import { useState, useEffect } from 'react'
 
-  function updateLocation(e) {
-    const newLocation = e.target.value
+export default function SetRegion ({ setRegion, setForecastDate, forecastDate }){
+
+  const [ newInput, setNewInput ] = useState('')
+  const [ newDateInput, setNewDateInput ] = useState(0)
+
+  function updateInput(e) {
+    setNewInput(e.target.value)
   }
 
   function updateDate(e) {
-    const daysLeft = e.target.value
-    // setDate(data.days[daysLeft].datetime)
+    setNewDateInput(e.target.value)
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault()
+    setRegion(newInput)
+    setForecastDate(newDateInput)
+    setNewInput('')
+    setNewDateInput(0)
   }
 
   return (
-    <div className="set-region">
-      <input className="form-control" type="text" placeholder="Search city..." onChange={updateLocation} />
-      <select className="form-select" name="date" id="" onChange={updateDate}>
-        <option value="0">Today</option>
-        <option value="1">Tomorrow</option>
-        <option value="2">In 2 days</option>
-        <option value="3">In 3 days</option>
-        <option value="4">In 4 days</option>
-        <option value="5">In 5 days</option>
-        <option value="6">In 6 days</option>
-        <option value="7">In 7 days</option>
-      </select>
+    <div>
+      <form onSubmit={handleSubmit} className="set-region">
+        <input className="form-control" type="text" placeholder="Your city..." value={newInput} onChange={updateInput} />
+        <select className="form-select" name="date" id="" value={newDateInput} onChange={updateDate}>
+          <option value="0">Today</option>
+          <option value="1">Tomorrow</option>
+          <option value="3">In 3 days</option>
+          <option value="7">In 7 days</option>
+        </select>
+        <button className="btn btn-outline-dark button-styling">Search</button>
+      </form>
     </div>
   )
 }

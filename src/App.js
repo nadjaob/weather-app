@@ -3,7 +3,6 @@ import axios from 'axios'
 
 
 // COMPONENTS 
-import ChangeLocation from './components/ChangeLocation'
 import CurrentWeather from './components/CurrentWeather'
 import SetRegion from './components/SetRegion'
 
@@ -11,8 +10,12 @@ import SetRegion from './components/SetRegion'
 
 const App = () => {
 
-  const [ region, setRegion ] = useState()
+  const [ region, setRegion ] = useState('')
+  const [ fullRegion, setFullRegion ] = useState()
+
   const [ date, setDate ] = useState()
+  const [ forecastDate, setForecastDate ] = useState(0)
+
   const [ time, setTime ] = useState()
 
   const [ weather, setWeather ] = useState()
@@ -22,34 +25,43 @@ const App = () => {
   useEffect(() => {
     const key = process.env.REACT_APP_API_KEY
     const getData = async () => {
-      const { data } = await axios.get(`/vancouver?key=${key}`) // * <-- replace with your endpoint
-      console.log(data)
-      console.log(data.currentConditions.conditions)
+      try {
+        const { data } = await axios.get(`/${region}}?key=${key}`) // * <-- replace with your endpoint
+        console.log(data)
+        console.log(data.currentConditions.conditions)
 
-      setRegion(data.resolvedAddress)
-      setDate(data.days[0].datetime)
-      setTime(data.currentConditions.datetime)
+        setFullRegion(data.resolvedAddress)
+        setDate(data.days[forecastDate].datetime)
+        setTime(data.currentConditions.datetime)
 
-      setWeather(data.currentConditions.conditions)
-      setTemperature(data.currentConditions.temp)
-      setHumidity(data.currentConditions.humidity)
+        setWeather(data.currentConditions.conditions)
+        setTemperature(data.currentConditions.temp)
+        setHumidity(data.currentConditions.humidity)
+      } catch (error) {
+        console.log(error)
+      }
     }
     getData()
-  }, [])
+  }, [region, forecastDate])
 
   console.log(weather)
 
   return (
     <main>
-      <h1>Is It Time for The Beach?</h1>
-      <SetRegion />
+      <h1>Is It Time for Long Pants?</h1>
+      <SetRegion
+        setRegion={setRegion}
+        setForecastDate={setForecastDate}
+        forecastDate={forecastDate}
+      />
       <CurrentWeather
-        region= { region }
-        date = { date }
-        time = { time }
-        temperature={ temperature}
-        weather= { weather }
-        humidity = { humidity }
+        setRegion={setRegion}
+        fullRegion={fullRegion}
+        date={date}
+        time={time}
+        temperature={temperature}
+        weather={weather}
+        humidity={humidity}
       />
     </main>
   )

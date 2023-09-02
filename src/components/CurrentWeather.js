@@ -12,14 +12,14 @@ import Col from 'react-bootstrap/Col'
 // COMPONENTS
 import ChangeLocation from './ChangeLocation'
 
-export default function CurrentWeather( { temperature, time, weather, humidity, date, region }) {
+export default function CurrentWeather( { temperature, time, weather, humidity, date, fullRegion, setRegion }) {
   console.log('type of temperature ', typeof temperature)
   return (
     <>
       <Container>
         <Row>
           <Col md="4" className="weather-details-left">
-            <h3>{region}</h3>
+            <h3 className="text-end">{fullRegion}</h3>
             <h3>{date}</h3>
             <h3>{time}</h3>
           </Col>
@@ -31,13 +31,13 @@ export default function CurrentWeather( { temperature, time, weather, humidity, 
                 <>
                   {temperature > 68 ?
                     <>
-                      <p>YES!</p>
+                      <p>NO!</p>
                       <img src={manSmiles} alt="Man smiles becuase it's beach weather." />
                       
                     </>
                     :
                     <>
-                      <p>NO!</p>
+                      <p>YES!</p>
                       <img src={manCries} alt="Man cries because it's no beach weather." />
                     </>
                   }
@@ -47,11 +47,19 @@ export default function CurrentWeather( { temperature, time, weather, humidity, 
             </div>
           </Col>
           <Col md="4" className="weather-details-right">
-            <h3>Temperature: {temperature}</h3>
+            {temperature ?
+              <h3>Temperature: {temperature}</h3>
+              : <></>
+            }
             <h3>{weather}</h3>
-            <h3>Humidity: {humidity }</h3>
+            {humidity ?
+              <h3>Humidity: {humidity}</h3>
+              : <></>
+            }
             {temperature <= 68 ?
-              <ChangeLocation />
+              <ChangeLocation
+                setRegion={setRegion}
+              />
               :
               <div></div>
             }
@@ -62,35 +70,3 @@ export default function CurrentWeather( { temperature, time, weather, humidity, 
 
   )
 }
-
-
-
-{/* <div className="weather-display">
-
-<div className="region-date">
-  <h3>{region}</h3>
-  <h3>{date}</h3>
-  <h3>{time}</h3>
-</div>
-
-<div className="weather-img">
-  {console.log(temperature > 68)}
-  {temperature > 68 ? 
-    <div className='answer'>
-      <p>YES</p>
-      <img src={manBeach} alt="Man on the beach waiting for forecast" />
-        
-    </div>
-    : 
-    <div className='answer'>
-      <p>NO</p>
-      <img src={manSki} alt="Man on the beach waiting for forecast" />
-    </div>}
-</div> 
-<div className="weather-details">
-  <h3>Temperature: {temperature}</h3>
-  <h3>{weather}</h3>
-  <h3>Humidity: {humidity }</h3>
-</div>
-
-</div> */}
