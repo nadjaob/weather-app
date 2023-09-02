@@ -22,7 +22,7 @@ const App = () => {
   useEffect(() => {
     const key = process.env.REACT_APP_API_KEY
     const getData = async () => {
-      const { data } = await axios.get(`/London,UK?key=${key}`) // * <-- replace with your endpoint
+      const { data } = await axios.get(`/Lagos?key=${key}`) // * <-- replace with your endpoint
       console.log(data)
       console.log(data.currentConditions.conditions)
 
