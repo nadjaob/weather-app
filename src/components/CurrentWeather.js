@@ -11,9 +11,36 @@ import Col from 'react-bootstrap/Col'
 
 // COMPONENTS
 import ChangeLocation from './ChangeLocation'
+import Temperature from './Temperature'
 
-export default function CurrentWeather( { temperature, time, weather, humidity, date, fullRegion, setRegion }) {
-  console.log('type of temperature ', typeof temperature)
+// HOOKS
+import { useState, useEffect } from 'react'
+
+function fahrenheitToCelcius(fahrenheit){
+  console.log('FAHRENHEIT ', fahrenheit)
+  return Math.round((fahrenheit - 32) * (5 / 9) * 100 ) / 100
+}
+
+function celciusToFahrenheit(celcius) {
+  console.log('CELCIUS ', celcius)
+  return Math.round((celcius * (9 / 5 ) + 32) * 100) / 100
+}
+
+
+
+export default function CurrentWeather( { temperature, setTemperature, tempScale, setTempScale, time, weather, humidity, date, fullRegion, setRegion }) {
+
+  function changeScale(){
+    if (tempScale === 'F'){
+      setTemperature(fahrenheitToCelcius(temperature))
+      setTempScale('C')
+    } else if (tempScale === 'C'){
+      setTemperature(celciusToFahrenheit(temperature))
+      setTempScale('F')
+    }
+    // const newTemp = tempScale === 'fahrenheit' ? ((temperature - 32) * (5 / 9)) : (tempScale === 'celsius' && ((temperature * (9 / 5 )) + 32))
+  }
+  
   return (
     <>
       <Container>
@@ -29,7 +56,7 @@ export default function CurrentWeather( { temperature, time, weather, humidity, 
                 <img src={manBeach} alt="Man on the beach waiting for forecast." />
                 :
                 <>
-                  {temperature > 68 ?
+                  {((tempScale === 'F' && temperature > 68) || (tempScale === 'C' && temperature > 20)) ?
                     <>
                       <p>NO!</p>
                       <img src={manSmiles} alt="Man smiles becuase it's beach weather." />
@@ -48,7 +75,11 @@ export default function CurrentWeather( { temperature, time, weather, humidity, 
           </Col>
           <Col md="4" className="weather-details-right">
             {temperature ?
-              <h3>Temperature: {temperature}&deg;F</h3>
+              <Temperature 
+                temp = {temperature}
+                tempScale = {tempScale}
+                changeScale={changeScale}
+              />
               : <></>
             }
             <h3>{weather}</h3>
@@ -56,7 +87,7 @@ export default function CurrentWeather( { temperature, time, weather, humidity, 
               <h3>Humidity: {humidity}%</h3>
               : <></>
             }
-            {temperature <= 68 ?
+            {((tempScale === 'F' && temperature < 68) || (tempScale === 'C' && temperature < 20)) ?
               <ChangeLocation
                 setRegion={setRegion}
               />
