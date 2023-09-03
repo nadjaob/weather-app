@@ -12,6 +12,7 @@ import Col from 'react-bootstrap/Col'
 // COMPONENTS
 import ChangeLocation from './ChangeLocation'
 import Temperature from './Temperature'
+import Weather from './Weather'
 
 // HOOKS
 import { useState, useEffect } from 'react'
@@ -28,7 +29,7 @@ function celciusToFahrenheit(celcius) {
 
 
 
-export default function CurrentWeather( { temperature, setTemperature, tempScale, setTempScale, time, weather, humidity, date, fullRegion, setRegion }) {
+export default function CurrentWeather( { icon, temperature, setTemperature, tempScale, setTempScale, time, weather, humidity, date, fullRegion, setRegion }) {
 
   function changeScale(){
     if (tempScale === 'F'){
@@ -38,7 +39,6 @@ export default function CurrentWeather( { temperature, setTemperature, tempScale
       setTemperature(celciusToFahrenheit(temperature))
       setTempScale('F')
     }
-    // const newTemp = tempScale === 'fahrenheit' ? ((temperature - 32) * (5 / 9)) : (tempScale === 'celsius' && ((temperature * (9 / 5 )) + 32))
   }
   
   return (
@@ -82,9 +82,15 @@ export default function CurrentWeather( { temperature, setTemperature, tempScale
               />
               : <></>
             }
-            <h3>{weather}</h3>
             {humidity ?
               <h3>Humidity: {humidity}%</h3>
+              : <></>
+            }
+            {weather ?
+              <Weather 
+                weather={weather}
+                icon={icon}
+              />
               : <></>
             }
             {((tempScale === 'F' && temperature < 68) || (tempScale === 'C' && temperature < 20)) ?

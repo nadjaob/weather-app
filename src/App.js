@@ -19,6 +19,8 @@ const App = () => {
   const [ time, setTime ] = useState()
 
   const [ weather, setWeather ] = useState()
+  const [ icon, setIcon ] = useState()
+
   const [ temperature, setTemperature ] = useState()
   const [ tempScale, setTempScale ] = useState('F')
   const [ humidity, setHumidity ] = useState()
@@ -36,9 +38,14 @@ const App = () => {
         setTime(data.currentConditions.datetime)
 
         setWeather(data.currentConditions.conditions)
+        setIcon(data.currentConditions.icon)
+        console.log('icon', icon)
+
         setTemperature(data.currentConditions.temp)
         setTempScale('F')
         setHumidity(data.currentConditions.humidity)
+      
+        
       } catch (error) {
         console.log(error)
       }
@@ -65,6 +72,7 @@ const App = () => {
         tempScale={tempScale}
         weather={weather}
         humidity={humidity}
+        icon={icon}
       />
     </main>
   )

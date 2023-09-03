@@ -1,11 +1,10 @@
 .temparature{
   display: flex;
-  margin: 0.5rem 0; 
+  align-items: center;
   h3{
     width: 10rem; 
   }
   button{
-    margin: 0.5rem 0; 
     height: 2rem;
     width: 2rem; 
     display: flex;
