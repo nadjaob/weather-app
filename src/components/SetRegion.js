@@ -23,7 +23,9 @@ export default function SetRegion ({ setRegion, date, setDate }){
   return (
     <div>
       <form onSubmit={handleSubmit} className="set-region">
-        <input className="form-control" type="text" placeholder="Your city..." value={newInput} onChange={updateInput} />
+        <label hidden htmlFor="region">Region</label>
+        <input className="form-control" type="text" placeholder="Your city..." name="region" value={newInput} onChange={updateInput} />
+        <label hidden htmlFor="date">Date</label>
         <select className="form-select" name="date" id="" value={newDateInput} onChange={updateDate}>
           <option value="0">Today</option>
           <option value="1">Tomorrow</option>

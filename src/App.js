@@ -8,9 +8,7 @@ import SetRegion from './components/SetRegion'
 
 const App = () => {
 
-  // const today = new Date().toISOString().split('T')
-
-  const [ region, setRegion ] = useState('')
+  const [ region, setRegion ] = useState()
   const [ fullRegion, setFullRegion ] = useState()
   const [ date, setDate ] = useState(0)
 
