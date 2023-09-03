@@ -48,12 +48,12 @@ export default function CurrentWeather( { temperature, time, weather, humidity, 
           </Col>
           <Col md="4" className="weather-details-right">
             {temperature ?
-              <h3>Temperature: {temperature}</h3>
+              <h3>Temperature: {temperature}&deg;F</h3>
               : <></>
             }
             <h3>{weather}</h3>
             {humidity ?
-              <h3>Humidity: {humidity}</h3>
+              <h3>Humidity: {humidity}%</h3>
               : <></>
             }
             {temperature <= 68 ?
