@@ -6,18 +6,18 @@ import axios from 'axios'
 import CurrentWeather from './components/CurrentWeather'
 import SetRegion from './components/SetRegion'
 
-//Key
-
 const App = () => {
+
+  // const today = new Date().toISOString().split('T')
 
   const [ region, setRegion ] = useState('')
   const [ fullRegion, setFullRegion ] = useState()
+  const [ date, setDate ] = useState(0)
 
-  const [ date, setDate ] = useState()
-  const [ forecastDate, setForecastDate ] = useState()
+  // const [ forecastDate, setForecastDate ] = useState()
 
-  const [ time, setTime ] = useState()
-
+  //! Suggestion: leave out time? 
+  // const [ time, setTime ] = useState()
   const [ weather, setWeather ] = useState()
   const [ icon, setIcon ] = useState()
 
@@ -29,21 +29,22 @@ const App = () => {
     const key = process.env.REACT_APP_API_KEY
     const getData = async () => {
       try {
-        const { data } = await axios.get(`/${region}}?key=${key}`) // * <-- replace with your endpoint
-        console.log(data)
-        console.log(data.currentConditions.conditions)
+        const { data } = await axios.get(`/${region}/?key=${key}`) 
 
         setFullRegion(data.resolvedAddress)
-        setDate(data.days[forecastDate].datetime)
-        setTime(data.currentConditions.datetime)
+        setDate(data.days[date].datetime)
+        console.log('data', data)
+        console.log('date', date)
 
-        setWeather(data.currentConditions.conditions)
-        setIcon(data.currentConditions.icon)
-        console.log('icon', icon)
+        //! Suggestion: leave out time? 
+        // setTime(data.currentConditions.datetime)
 
-        setTemperature(data.currentConditions.temp)
+        setWeather(data.days[date].conditions)
+        setIcon(data.days[date].icon)
+
+        setTemperature(data.days[date].temp)
         setTempScale('F')
-        setHumidity(data.currentConditions.humidity)
+        setHumidity(data.days[date].humidity)
       
         
       } catch (error) {
@@ -51,21 +52,24 @@ const App = () => {
       }
     }
     getData()
-  }, [region, forecastDate])
+  }, [region, date])
 
   return (
     <main>
       <h1>Is It Time for Long Pants?</h1>
       <SetRegion
         setRegion={setRegion}
-        setForecastDate={setForecastDate}
-        forecastDate={forecastDate}
+        // setForecastDate={setForecastDate}
+        // forecastDate={forecastDate}
+        date={date}
+        setDate={setDate}
       />
       <CurrentWeather
         setRegion={setRegion}
         fullRegion={fullRegion}
         date={date}
-        time={time}
+        //! Suggestion: leave out time? 
+        // time={time}
         setTemperature={setTemperature}
         temperature={temperature}
         setTempScale={setTempScale}

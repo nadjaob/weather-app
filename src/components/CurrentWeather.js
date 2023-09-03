@@ -29,7 +29,8 @@ function celciusToFahrenheit(celcius) {
 
 
 
-export default function CurrentWeather( { icon, temperature, setTemperature, tempScale, setTempScale, time, weather, humidity, date, fullRegion, setRegion }) {
+//! Suggestion: leave out time? (deleted time form props)
+export default function CurrentWeather( { icon, temperature, setTemperature, tempScale, setTempScale, weather, humidity, date, fullRegion, setRegion }) {
 
   function changeScale(){
     if (tempScale === 'F'){
@@ -48,7 +49,8 @@ export default function CurrentWeather( { icon, temperature, setTemperature, tem
           <Col md="4" className="weather-details-left">
             <h3 className="text-end">{fullRegion}</h3>
             <h3>{date}</h3>
-            <h3>{time}</h3>
+            {/*    //! Suggestion: leave out time? 
+            <h3>{time}</h3> */}
           </Col>
           <Col md="4">
             <div className="answer">
