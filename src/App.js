@@ -10,7 +10,7 @@ import SetRegion from './components/SetRegion'
 
 const App = () => {
 
-  const [ region, setRegion ] = useState('')
+  const [ region, setRegion ] = useState()
   const [ fullRegion, setFullRegion ] = useState()
 
   const [ date, setDate ] = useState()
