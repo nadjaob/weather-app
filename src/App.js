@@ -14,12 +14,15 @@ const App = () => {
   const [ fullRegion, setFullRegion ] = useState()
 
   const [ date, setDate ] = useState()
-  const [ forecastDate, setForecastDate ] = useState(0)
+  const [ forecastDate, setForecastDate ] = useState()
 
   const [ time, setTime ] = useState()
 
   const [ weather, setWeather ] = useState()
+  const [ icon, setIcon ] = useState()
+
   const [ temperature, setTemperature ] = useState()
+  const [ tempScale, setTempScale ] = useState('F')
   const [ humidity, setHumidity ] = useState()
 
   useEffect(() => {
@@ -35,16 +38,20 @@ const App = () => {
         setTime(data.currentConditions.datetime)
 
         setWeather(data.currentConditions.conditions)
+        setIcon(data.currentConditions.icon)
+        console.log('icon', icon)
+
         setTemperature(data.currentConditions.temp)
+        setTempScale('F')
         setHumidity(data.currentConditions.humidity)
+      
+        
       } catch (error) {
         console.log(error)
       }
     }
     getData()
   }, [region, forecastDate])
-
-  console.log(weather)
 
   return (
     <main>
@@ -59,9 +66,13 @@ const App = () => {
         fullRegion={fullRegion}
         date={date}
         time={time}
+        setTemperature={setTemperature}
         temperature={temperature}
+        setTempScale={setTempScale}
+        tempScale={tempScale}
         weather={weather}
         humidity={humidity}
+        icon={icon}
       />
     </main>
   )

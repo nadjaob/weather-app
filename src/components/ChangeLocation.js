@@ -1,6 +1,6 @@
 export default function ChangeLocation( { setRegion } ){
 
-  const hotPlaces = ['death valley', 'sahara', 'mojave', 'atacama']
+  const hotPlaces = ['death valley', 'sahara', 'mojave']
 
   function updateLocation() {
     const randomNumber = Math.floor(Math.random() * hotPlaces.length)
