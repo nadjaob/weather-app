@@ -60,13 +60,13 @@ export default function CurrentWeather( { icon, temperature, setTemperature, tem
                 <>
                   {((tempScale === 'F' && temperature > 68) || (tempScale === 'C' && temperature > 20)) ?
                     <>
-                      <p>NO!</p>
+                      <p>YES!</p>
                       <img src={manSmiles} alt="Man smiles becuase it's beach weather." />
                       
                     </>
                     :
                     <>
-                      <p>YES!</p>
+                      <p>NO!</p>
                       <img src={manCries} alt="Man cries because it's no beach weather." />
                     </>
                   }

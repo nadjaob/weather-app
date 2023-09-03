@@ -54,7 +54,7 @@ const App = () => {
 
   return (
     <main>
-      <h1>Is It Time for Long Pants?</h1>
+      <h1>Can I Wear Short Pants?</h1>
       <SetRegion
         setRegion={setRegion}
         // setForecastDate={setForecastDate}
