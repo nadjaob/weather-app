@@ -13,8 +13,8 @@ export default function Weather( { icon, weather } ){
 
   return (
     <div className="weather">
-      <img src={images[`${icon}.png`]} alt={icon} />
       <h3>{weather}</h3>
+      <img src={images[`${icon}.png`]} alt={icon} />
     </div>
   )
 }

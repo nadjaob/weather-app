@@ -20,6 +20,11 @@ export default function SetRegion ({ setRegion, date, setDate, forecastDate, set
     setNewDateInput(0)
   }
 
+  // function resetInputs() {
+  //   setNewInput('')
+  //   setNewDateInput(0)
+  // }
+
   return (
     <div>
       <form onSubmit={handleSubmit} className="set-region">

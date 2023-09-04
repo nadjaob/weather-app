@@ -1,6 +1,7 @@
 // IMAGES
 import manBeach from '../images/man-beach-sm.png'
 import manSki from '../images/man-on-ski.png'
+import manHandsUp from '../images/man-hands-up.png'
 import manSmiles from '../images/man-smiles-sm.png'
 import manCries from '../images/man-cries-sm.png'
 
@@ -30,7 +31,7 @@ function celciusToFahrenheit(celcius) {
 
 
 //! Suggestion: leave out time? (deleted time form props)
-export default function CurrentWeather( { icon, temperature, setTemperature, tempScale, setTempScale, weather, humidity, date, fullRegion, setRegion }) {
+export default function CurrentWeather( { icon, temperature, setTemperature, tempScale, setTempScale, weather, humidity, date, fullRegion, setRegion, setShowError }) {
 
   function changeScale(){
     if (tempScale === 'F'){
@@ -68,10 +69,7 @@ export default function CurrentWeather( { icon, temperature, setTemperature, tem
                       <img src={manCries} alt="Man cries because it's no beach weather." />
                     </>
                   }
-                  {/* if temperature is 'nonexistent", 
-                  <>
-                    error image
-                  </> */}
+                  {/* {setShowError && <img src={manHandsUp} alt="Man on the beach waiting for forecast." />} */}
                 </>
               }
               

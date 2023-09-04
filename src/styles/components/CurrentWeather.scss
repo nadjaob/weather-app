@@ -30,3 +30,19 @@
 .button-styling {
   @extend %button-styling;
 }
+
+@media (max-width: 768px) {
+  .weather-details-left, .weather-details-right {
+    align-items: center;
+  }
+  .answer {
+    img {
+      max-width: 40%;
+      margin: 10px auto 20px;
+    }
+    p {
+      font-size: 180px;
+      top: -80px;
+    }
+  } 
+}

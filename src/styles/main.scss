@@ -45,3 +45,9 @@ h3 {
     width: 1200px;
   }
 }
+
+@media (max-width: 768px) {
+  main {
+    padding: 50px 25px;
+  }
+}

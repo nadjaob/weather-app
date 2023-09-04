@@ -21,13 +21,14 @@ const App = () => {
   const [ tempScale, setTempScale ] = useState('F')
   const [ humidity, setHumidity ] = useState()
 
+  // const [ showError, setShowError ] = useState()
+
   useEffect(() => {
     const key = process.env.REACT_APP_API_KEY
     const getData = async () => {
       try {
         const { data } = await axios.get(`/${region}/?key=${key}`) 
         console.log('data', data)
-
     
         setFullRegion(data.resolvedAddress)
         setDate(data.days[forecastDate].datetime)
@@ -39,16 +40,23 @@ const App = () => {
         setTemperature(data.days[forecastDate].temp)
         setTempScale('F')
         setHumidity(data.days[forecastDate].humidity)
+
       
         
       } catch (error) {
         console.log(error)
         console.log('put error image')
-        //Set Temperature to "nonexistent"
+        // setTemperature('errorTemp')
+        // setShowError(true)
+        // console.log(`nadjs error ${showError}`)
       }
     }
     getData()
   }, [region, forecastDate])
+
+  // useEffect(() => {
+  //   setShowError(false)
+  // }, [])
 
   return (
     <main>
@@ -70,6 +78,7 @@ const App = () => {
         weather={weather}
         humidity={humidity}
         icon={icon}
+        // setShowError={setShowError}
       />
     </main>
   )
