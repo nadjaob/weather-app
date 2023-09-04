@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-export default function SetRegion ({ setRegion, date, setDate }){
+export default function SetRegion ({ setRegion, date, setDate, forecastDate, setForecastDate }){
 
   const [ newInput, setNewInput ] = useState('')
   const [ newDateInput, setNewDateInput ] = useState(0)
@@ -15,9 +15,9 @@ export default function SetRegion ({ setRegion, date, setDate }){
   function handleSubmit(e) {
     e.preventDefault()
     setRegion(newInput)
-    setDate(newDateInput)
+    setForecastDate(newDateInput)
     setNewInput('')
-    // setDate(0)
+    setNewDateInput(0)
   }
 
   return (

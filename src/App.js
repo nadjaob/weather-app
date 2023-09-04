@@ -8,14 +8,12 @@ import SetRegion from './components/SetRegion'
 
 const App = () => {
 
-  const [ region, setRegion ] = useState()
+  const [ region, setRegion ] = useState('')
   const [ fullRegion, setFullRegion ] = useState()
-  const [ date, setDate ] = useState(0)
+  const [ date, setDate ] = useState()
 
-  // const [ forecastDate, setForecastDate ] = useState()
+  const [ forecastDate, setForecastDate ] = useState()
 
-  //! Suggestion: leave out time? 
-  // const [ time, setTime ] = useState()
   const [ weather, setWeather ] = useState()
   const [ icon, setIcon ] = useState()
 
@@ -28,37 +26,36 @@ const App = () => {
     const getData = async () => {
       try {
         const { data } = await axios.get(`/${region}/?key=${key}`) 
-
-        setFullRegion(data.resolvedAddress)
-        setDate(data.days[date].datetime)
         console.log('data', data)
+
+    
+        setFullRegion(data.resolvedAddress)
+        setDate(data.days[forecastDate].datetime)
         console.log('date', date)
 
-        //! Suggestion: leave out time? 
-        // setTime(data.currentConditions.datetime)
+        setWeather(data.days[forecastDate].conditions)
+        setIcon(data.days[forecastDate].icon)
 
-        setWeather(data.days[date].conditions)
-        setIcon(data.days[date].icon)
-
-        setTemperature(data.days[date].temp)
+        setTemperature(data.days[forecastDate].temp)
         setTempScale('F')
-        setHumidity(data.days[date].humidity)
+        setHumidity(data.days[forecastDate].humidity)
       
         
       } catch (error) {
         console.log(error)
+        console.log('put error image')
+        //Set Temperature to "nonexistent"
       }
     }
     getData()
-  }, [region, date])
+  }, [region, forecastDate])
 
   return (
     <main>
       <h1>Can I Wear Short Pants?</h1>
       <SetRegion
         setRegion={setRegion}
-        // setForecastDate={setForecastDate}
-        // forecastDate={forecastDate}
+        setForecastDate={setForecastDate}
         date={date}
         setDate={setDate}
       />
@@ -66,8 +63,6 @@ const App = () => {
         setRegion={setRegion}
         fullRegion={fullRegion}
         date={date}
-        //! Suggestion: leave out time? 
-        // time={time}
         setTemperature={setTemperature}
         temperature={temperature}
         setTempScale={setTempScale}

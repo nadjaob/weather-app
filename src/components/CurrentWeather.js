@@ -49,8 +49,6 @@ export default function CurrentWeather( { icon, temperature, setTemperature, tem
           <Col md="4" className="weather-details-left">
             <h3 className="text-end">{fullRegion}</h3>
             <h3>{date}</h3>
-            {/*    //! Suggestion: leave out time? 
-            <h3>{time}</h3> */}
           </Col>
           <Col md="4">
             <div className="answer">
@@ -70,6 +68,10 @@ export default function CurrentWeather( { icon, temperature, setTemperature, tem
                       <img src={manCries} alt="Man cries because it's no beach weather." />
                     </>
                   }
+                  {/* if temperature is 'nonexistent", 
+                  <>
+                    error image
+                  </> */}
                 </>
               }
               
