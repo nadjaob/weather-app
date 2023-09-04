@@ -21,7 +21,7 @@ const App = () => {
   const [ tempScale, setTempScale ] = useState('F')
   const [ humidity, setHumidity ] = useState()
 
-  // const [ showError, setShowError ] = useState()
+  const [ showError, setShowError ] = useState()
 
   useEffect(() => {
     const key = process.env.REACT_APP_API_KEY

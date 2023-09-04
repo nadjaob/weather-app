@@ -45,4 +45,13 @@
       top: -80px;
     }
   } 
+  .full-location {
+    text-align: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .full-location {
+    text-align: right;
+  }
 }

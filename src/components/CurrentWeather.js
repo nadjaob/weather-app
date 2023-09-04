@@ -48,7 +48,7 @@ export default function CurrentWeather( { icon, temperature, setTemperature, tem
       <Container>
         <Row>
           <Col md="4" className="weather-details-left">
-            <h3 className="text-end">{fullRegion}</h3>
+            <h3 className="full-location">{fullRegion}</h3>
             <h3>{date}</h3>
           </Col>
           <Col md="4">
