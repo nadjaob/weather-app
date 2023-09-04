@@ -1,0 +1,2 @@
+/api/*  https://weather.visualcrossing.com/:splat   200
+/*  /index.html   200

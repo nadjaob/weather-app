@@ -46,7 +46,7 @@ const App = () => {
     const key = process.env.REACT_APP_API_KEY
     const getData = async () => {
       try {
-        const { data } = await axios.get(`/${region}/?key=${key}`) 
+        const { data } = await axios.get(`/api/VisualCrossingWebServices/rest/services/timeline/${region}/?key=${key}`) 
         console.log('data', data)
 
         console.log(mustBeHotter)
