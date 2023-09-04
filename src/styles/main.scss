@@ -40,6 +40,14 @@ h3 {
   font-weight: 900;
 }
 
+.centred {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+}
+
 @media (min-width: 992px) {
   main {
     width: 1200px;
