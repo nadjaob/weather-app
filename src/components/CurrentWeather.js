@@ -30,7 +30,7 @@ function celciusToFahrenheit(celcius) {
 
 
 //! Suggestion: leave out time? (deleted time form props)
-export default function CurrentWeather( { icon, temperature, setTemperature, tempScale, setTempScale, weather, humidity, date, fullRegion, setRegion }) {
+export default function CurrentWeather( { icon, temperature, setTemperature, tempScale, setTempScale, weather, humidity, date, fullRegion, setRegion, setMustBeHotter }) {
 
   function changeScale(){
     if (tempScale === 'F'){
@@ -100,6 +100,7 @@ export default function CurrentWeather( { icon, temperature, setTemperature, tem
             {((tempScale === 'F' && temperature < 68) || (tempScale === 'C' && temperature < 20)) ?
               <ChangeLocation
                 setRegion={setRegion}
+                setMustBeHotter={setMustBeHotter}
               />
               :
               <div></div>

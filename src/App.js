@@ -9,6 +9,7 @@ import SetRegion from './components/SetRegion'
 const App = () => {
 
   const [ region, setRegion ] = useState('')
+  const [ mustBeHotter, setMustBeHotter] = useState(false)
   const [ fullRegion, setFullRegion ] = useState()
   const [ date, setDate ] = useState()
 
@@ -21,6 +22,18 @@ const App = () => {
   const [ tempScale, setTempScale ] = useState('F')
   const [ humidity, setHumidity ] = useState()
 
+  function updateWebsite( apiResponse ){
+    setFullRegion(apiResponse.resolvedAddress)
+    setFullRegion(apiResponse.resolvedAddress)
+    setDate(apiResponse.days[forecastDate].datetime)
+    setWeather(apiResponse.days[forecastDate].conditions)
+    setIcon(apiResponse.days[forecastDate].icon)
+    setTemperature(apiResponse.days[forecastDate].temp)
+    setTempScale('F')
+    setHumidity(apiResponse.days[forecastDate].humidity)
+  }
+  
+
   useEffect(() => {
     const key = process.env.REACT_APP_API_KEY
     const getData = async () => {
@@ -28,17 +41,15 @@ const App = () => {
         const { data } = await axios.get(`/${region}/?key=${key}`) 
         console.log('data', data)
 
-    
-        setFullRegion(data.resolvedAddress)
-        setDate(data.days[forecastDate].datetime)
-        console.log('date', date)
-
-        setWeather(data.days[forecastDate].conditions)
-        setIcon(data.days[forecastDate].icon)
-
-        setTemperature(data.days[forecastDate].temp)
-        setTempScale('F')
-        setHumidity(data.days[forecastDate].humidity)
+        console.log(mustBeHotter)
+        if (mustBeHotter === false ) {
+          updateWebsite(data)
+        } else {
+          if (data.days[forecastDate].temp > 68){
+            updateWebsite(data)
+          }
+          setMustBeHotter(false)
+        }
       
         
       } catch (error) {
@@ -70,6 +81,7 @@ const App = () => {
         weather={weather}
         humidity={humidity}
         icon={icon}
+        setMustBeHotter={setMustBeHotter}
       />
     </main>
   )
