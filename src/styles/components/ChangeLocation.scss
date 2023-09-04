@@ -1,7 +1,18 @@
 .change-location {
-  position: relative;
-  top: 60px;
   .button-styling {
     @extend %button-styling;
+  }
+}
+
+@media (min-width: 768px) {
+  .change-location {
+    position: relative;
+    top: 60px;
+  }
+}
+
+@media (max-width: 767px) {
+  .change-location {
+    margin-top: 30px;
   }
 }

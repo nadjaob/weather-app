@@ -22,6 +22,9 @@ const App = () => {
   const [ tempScale, setTempScale ] = useState('F')
   const [ humidity, setHumidity ] = useState()
 
+  const [ newInput, setNewInput ] = useState('')
+  const [ newDateInput, setNewDateInput ] = useState(0)
+
   function updateWebsite( apiResponse ){
     setFullRegion(apiResponse.resolvedAddress)
     setFullRegion(apiResponse.resolvedAddress)
@@ -31,6 +34,11 @@ const App = () => {
     setTemperature(apiResponse.days[forecastDate].temp)
     setTempScale('F')
     setHumidity(apiResponse.days[forecastDate].humidity)
+  }
+
+  function resetInputs() {
+    setNewInput('')
+    setNewDateInput(0)
   }
   
 
@@ -55,11 +63,17 @@ const App = () => {
       } catch (error) {
         console.log(error)
         console.log('put error image')
-        //Set Temperature to "nonexistent"
+        // setTemperature('errorTemp')
+        // setShowError(true)
+        // console.log(`nadjs error ${showError}`)
       }
     }
     getData()
   }, [region, forecastDate])
+
+  // useEffect(() => {
+  //   setShowError(false)
+  // }, [])
 
   return (
     <main>
@@ -69,6 +83,11 @@ const App = () => {
         setForecastDate={setForecastDate}
         date={date}
         setDate={setDate}
+        newInput={newInput}
+        setNewInput={setNewInput}
+        newDateInput={newDateInput}
+        setNewDateInput={setNewDateInput}
+        resetInputs={resetInputs}
       />
       <CurrentWeather
         setRegion={setRegion}
@@ -82,6 +101,8 @@ const App = () => {
         humidity={humidity}
         icon={icon}
         setMustBeHotter={setMustBeHotter}
+        resetInputs={resetInputs}
+
       />
     </main>
   )

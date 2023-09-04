@@ -1,6 +1,7 @@
 // IMAGES
 import manBeach from '../images/man-beach-sm.png'
 import manSki from '../images/man-on-ski.png'
+import manHandsUp from '../images/man-hands-up.png'
 import manSmiles from '../images/man-smiles-sm.png'
 import manCries from '../images/man-cries-sm.png'
 
@@ -19,7 +20,7 @@ import { useState, useEffect } from 'react'
 import { fahrenheitToCelcius, celciusToFahrenheit } from '../utils/ convertTemperature'
 
 
-export default function CurrentWeather( { icon, temperature, setTemperature, tempScale, setTempScale, weather, humidity, date, fullRegion, setRegion, setMustBeHotter }) {
+export default function CurrentWeather( {  resetInputs, icon, temperature, setTemperature, tempScale, setTempScale, weather, humidity, date, fullRegion, setRegion, setMustBeHotter }) {
 
   function changeScale(){
     if (tempScale === 'F'){
@@ -36,7 +37,7 @@ export default function CurrentWeather( { icon, temperature, setTemperature, tem
       <Container>
         <Row>
           <Col md="4" className="weather-details-left">
-            <h3 className="text-end">{fullRegion}</h3>
+            <h3 className="full-location">{fullRegion}</h3>
             <h3>{date}</h3>
           </Col>
           <Col md="4">
@@ -57,10 +58,7 @@ export default function CurrentWeather( { icon, temperature, setTemperature, tem
                       <img src={manCries} alt="Man cries because it's no beach weather." />
                     </>
                   }
-                  {/* if temperature is 'nonexistent", 
-                  <>
-                    error image
-                  </> */}
+                  {/* {setShowError && <img src={manHandsUp} alt="Man on the beach waiting for forecast." />} */}
                 </>
               }
               
@@ -90,6 +88,7 @@ export default function CurrentWeather( { icon, temperature, setTemperature, tem
               <ChangeLocation
                 setRegion={setRegion}
                 setMustBeHotter={setMustBeHotter}
+                resetInputs={resetInputs}
               />
               :
               <div></div>

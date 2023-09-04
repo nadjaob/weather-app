@@ -1,14 +1,15 @@
-.temparature{
+.temperature{
   display: flex;
-  align-items: center;
-  h3{
-    width: 10rem; 
-  }
+  align-items: baseline;
+  gap: 15px;
   button{
     height: 2rem;
     width: 2rem; 
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  h3 {
+    min-width: 175px;
   }
 }

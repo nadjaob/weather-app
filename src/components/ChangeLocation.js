@@ -1,4 +1,4 @@
-export default function ChangeLocation( { setRegion, setMustBeHotter } ){
+export default function ChangeLocation( { setRegion, setMustBeHotter, resetInputs } ){
 
   const hotPlaces = ['death valley', 'sahara', 'mojave', 'timbuktu', 'mitibrah', 'dash-te', 'sanorannp']
 
@@ -6,6 +6,8 @@ export default function ChangeLocation( { setRegion, setMustBeHotter } ){
     const randomNumber = Math.floor(Math.random() * hotPlaces.length)
     setMustBeHotter(true)
     setRegion(hotPlaces[randomNumber])
+    resetInputs()
+
   }
 
   return (
