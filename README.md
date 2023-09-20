@@ -1,6 +1,10 @@
 # Can I wear short pants today?
+## Deployment link: 
+https://caniwearshortpants.netlify.app/
 
 ## A simple react application that displays whether or not it is time to wear long or short pants. 
+Do you know the struggle of getting up in the morning, trying to pick out clothes for the day, and not being quite sure how to dress appropriately for the weather? Obviously, you could just go outside to check what temperature it is, but let’s face it - we live in the 21st century, we do not go outside to check the weather. No, we go on the internet and try to find a website that tells us what to wear. 
+So, this is exactly what we created! CanIWearShortPants is a React-based frontend application that uses the Visual Crossing weather API to retrieve data about the temperature, weather, and humidity and a time and place specified by the user, and based on this information displays a response to the question “Can I wear Short pants?”. 
 
 ## Update the Proxy Server
 
@@ -32,7 +36,7 @@ Collaborator: Nadjaob
 - React
 - Node.js
 - Netlify for deployment 
-- Visual crossing weather API
+- Visual crossing weather API: https://www.visualcrossing.com/resources/documentation/weather-api/timeline-weather-api/
 
 ## Planning 
 Initial Wireframe for the project (created with excalidraw)
