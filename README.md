@@ -1,6 +1,6 @@
-# Is it sweater weather?
+# Can I wear short pants today?
 
-## A simple react application that displays whether or not it is time to wear a sweater. 
+## A simple react application that displays whether or not it is time to wear long or short pants. 
 
 ## Update the Proxy Server
 
