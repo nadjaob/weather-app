@@ -24,5 +24,62 @@ To prevent the `failed-to-compile` issue for linter errors like `no-unsed-vars`,
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Timeframe 
+This project was created within 3 days of work by two people. 
+Collaborator: Nadjaob
 
-TEST
+## Technologies Used
+- React
+- Node.js
+- Netlify for deployment 
+- Visual crossing weather API
+
+## Planning 
+Initial Wireframe for the project (created with excalidraw)
+
+We made sure to structure our wireframe in such a way that we could work relatively independently on different components, and to reduce merge conflicts to a minimum. 
+![3Y2TZaV6d_ajNeN6Bk_FFGoxHtrbS7rWJtxACROC9cjQUKm75uoFtDnhnSlMiGi3AwA4FEzqYW_CYlJsNajybU14YKUNvg13XxzEPCBdy_ai3dhgENEsz6_j9UQs](https://github.com/NLie2/weather-app/assets/99728936/46bb3009-2149-4337-a2eb-e37997acb298)
+
+### To Dos 
+#### Nathalie
+- Stubbing up basic layout (Nathalie)
+- API request  (Nathalie)
+- save relevant data to object
+- Implement components
+- temperature
+- region
+- date
+- weather 
+- Humidity
+- find sunny place function (button)
+- add more places
+- double check if place is hot right now
+- Make sure that the place in search input changes when button is clicked. 
+- Allow searching for different dates 
+- Implement change temperature function so that user can see temperature in both Fahrenheit and celsius 
+- Display a different icon next to weather report depending on weather. 
+
+#### Nadja
+- Search function (input)
+- Get a nice images for 
+- answer is yes
+- answer is no
+- Add bootstrap (Nadja)
+- Design (Aufbau mit containern)
+- favicon
+- mobile version
+- title and favicon
+- Allow changing date without having to type in place again
+
+## Challenges
+This was the first time for both of us working with forks on GitHub so we initially had some problems with pushing and pulling 
+Sometimes sharing variables with different components proved to be quite difficult. For instance, the “take me to a sunnier place’ button is supposed to access a random city, and check if the temperature there is hotter than at the place currently displayed, and then display the new place if it is hotter. However, the display functionality cannot easily be accessed by the button component, which is why we solved it by passing a boolean down to the button, that if it was set to true, would lead to the App.js component checking the temperature of the new place. 
+
+## Key takeaways
+A big takeaway for me during this project was to only refactor code that another team mate has written AFTER talking to them about it, and to always comment my own code as much as possible to make the reasons for my choices as apparent to my team mate as possible. There was one instance during this project in which I refactored my teammates code only to retrace her steps later. 
+
+
+## Future imporovements
+- a more elaborate algorithm to determine the final answer (right now it is based on a simple temperature cutoff)
+- Find sunnier places in immediate proximity (right now a random place out of the top hottest places on earth is chosen)
+
