@@ -40,7 +40,6 @@ Initial Wireframe for the project (created with excalidraw)
 We made sure to structure our wireframe in such a way that we could work relatively independently on different components, and to reduce merge conflicts to a minimum. 
 ![3Y2TZaV6d_ajNeN6Bk_FFGoxHtrbS7rWJtxACROC9cjQUKm75uoFtDnhnSlMiGi3AwA4FEzqYW_CYlJsNajybU14YKUNvg13XxzEPCBdy_ai3dhgENEsz6_j9UQs](https://github.com/NLie2/weather-app/assets/99728936/46bb3009-2149-4337-a2eb-e37997acb298)
 
-### To Dos 
 #### Nathalie
 - Stubbing up basic layout (Nathalie)
 - API request  (Nathalie)
