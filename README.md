@@ -86,3 +86,5 @@ A big takeaway for me during this project was to only refactor code that another
 - a more elaborate algorithm to determine the final answer (right now it is based on a simple temperature cutoff)
 - Find sunnier places in immediate proximity (right now a random place out of the top hottest places on earth is chosen)
 
+test
+
