@@ -1,88 +1,106 @@
-# Can I wear short pants today?
-## Deployment link: 
-https://caniwearshortpants.netlify.app/
+# Can I wear short pants?
 
-## A simple react application that displays whether or not it is time to wear long or short pants. 
-Do you know the struggle of getting up in the morning, trying to pick out clothes for the day, and not being quite sure how to dress appropriately for the weather? Obviously, you could just go outside to check what temperature it is, but let’s face it - we live in the 21st century, we do not go outside to check the weather. No, we go on the internet and try to find a website that tells us what to wear. 
-So, this is exactly what we created! CanIWearShortPants is a React-based frontend application that uses the Visual Crossing weather API to retrieve data about the temperature, weather, and humidity and a time and place specified by the user, and based on this information displays a response to the question “Can I wear Short pants?”. 
+## Description
 
-## Update the Proxy Server
+Can I wear short pants? is a React-based front-end application that uses the Visual Crossing weather API to retrieve data about the temperature, weather, humidity and a time and place specified by the user. Based on this information the application displays a response to the question “Can I wear short pants?”.
 
-By default, the proxy server is set up to point at port 8000, if you need to do so update in `setupProxy.js` where commented.
 
-## Using NPM
+## Deployment link
 
-`npm run start` or `npm run dev`  to run the development server
+https://can-i-wear-short-pants.netlify.app/
 
-`npm run build` to create a build directory
 
-## Using Yarn
+## Timeframe & Working Team
 
-`yarn start` or `yarn dev`  to run the development server
+This project was created within 2 days of work by two people.
+Collaborator: NLie2
 
-`yarn build` to create a build directory
-
-### ⚠️
-
-To prevent the `failed-to-compile` issue for linter errors like `no-unsed-vars`, rename the `.env.example` to `.env` and restart your development server. Note this will only change the behaviour of certain linter errors to now be warnings, and is added just to allow your code to compile in development. These errors should still be fixed and other errors will still result in the code being unable to compile
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Timeframe 
-This project was created within 3 days of work by two people. 
-Collaborator: Nadjaob
 
 ## Technologies Used
+
 - React
+- JavaScript
+- Sass
 - Node.js
-- Netlify for deployment 
+- Express
+- Git
+- GitHub
 - Visual crossing weather API: https://www.visualcrossing.com/resources/documentation/weather-api/timeline-weather-api/
+- Netlify
 
-## Planning 
-Initial Wireframe for the project (created with excalidraw)
 
-We made sure to structure our wireframe in such a way that we could work relatively independently on different components, and to reduce merge conflicts to a minimum. 
-![3Y2TZaV6d_ajNeN6Bk_FFGoxHtrbS7rWJtxACROC9cjQUKm75uoFtDnhnSlMiGi3AwA4FEzqYW_CYlJsNajybU14YKUNvg13XxzEPCBdy_ai3dhgENEsz6_j9UQs](https://github.com/NLie2/weather-app/assets/99728936/46bb3009-2149-4337-a2eb-e37997acb298)
+## Brief
 
-#### Nathalie
-- Stubbing up basic layout (Nathalie)
-- API request  (Nathalie)
-- save relevant data to object
-- Implement components
-- temperature
-- region
-- date
-- weather 
-- Humidity
-- find sunny place function (button)
-- add more places
-- double check if place is hot right now
-- Make sure that the place in search input changes when button is clicked. 
-- Allow searching for different dates 
-- Implement change temperature function so that user can see temperature in both Fahrenheit and celsius 
-- Display a different icon next to weather report depending on weather. 
+The app must:
+​
+- Consume a public API – this could be anything but it must make sense for your project
+- Have several components
+- The app can have a router - with several "pages", this is up to you and if it makes sense for your project
+- Include wireframes - that you designed before building the app
+- Be deployed online and accessible to the public
 
-#### Nadja
-- Search function (input)
-- Get a nice images for 
-- answer is yes
-- answer is no
-- Add bootstrap (Nadja)
-- Design (Aufbau mit containern)
-- favicon
-- mobile version
-- title and favicon
-- Allow changing date without having to type in place again
+
+## Planning
+
+The initial planning of the project started with the idea of using a weather API and a basic wireframe created with Excalidraw.
+
+
+We made sure to structure our wireframe in such a way that we could work relatively independently on different components to reduce merge conflicts to a minimum.
+
+
+
+## Build/Code Process
+
+Before starting with this project we did enough research to be completely sure about how our chosen API works and what exact data we can request so it aligns with our wireframe.
+
+For this first pair project we delegated clearly what tasks each of us were responsible for. Nathalie set up the base of the project so we could implement and test the API.
+
+To structure our content and in order to secure the responsiveness of our application we decided to implement Bootstrap.
+
+I started to work on the search function which contains the possibility to specify a location and a date within the next 14 days. In case the user forgets to select a date, I defined today as the default value.
+
+
+The displayed answer depends on the temperature in the selected location.
+
+
+
+
+After being unsure of how to pass information between components to be able to implement the ‘Take me to the sun’ button we decided to work on a shared screen. 
+
+
+
+
 
 ## Challenges
-This was the first time for both of us working with forks on GitHub so we initially had some problems with pushing and pulling 
-Sometimes sharing variables with different components proved to be quite difficult. For instance, the “take me to a sunnier place’ button is supposed to access a random city, and check if the temperature there is hotter than at the place currently displayed, and then display the new place if it is hotter. However, the display functionality cannot easily be accessed by the button component, which is why we solved it by passing a boolean down to the button, that if it was set to true, would lead to the App.js component checking the temperature of the new place. 
 
-## Key takeaways
-A big takeaway for me during this project was to only refactor code that another team mate has written AFTER talking to them about it, and to always comment my own code as much as possible to make the reasons for my choices as apparent to my team mate as possible. There was one instance during this project in which I refactored my teammates code only to retrace her steps later. 
+This was the first time for both of us working with forks on GitHub so we initially had some problems with pushing and pulling our versions.
+
+Sometimes sharing variables with different components proved to be quite difficult. For instance, the ‘Take me to the sun’ button is supposed to access a random city, and check if the temperature there is hotter than at the place currently displayed, and then display the new place if it is hotter. However, the display functionality cannot easily be accessed by the button component, which is why we solved it by passing a boolean down to the button, that if it was set to true, would lead to the App.js component checking the temperature of the new place.
 
 
-## Future imporovements
-- a more elaborate algorithm to determine the final answer (right now it is based on a simple temperature cutoff)
+## Wins
+
+The collaboration with Nathalie worked well and we managed to fix all merge conflicts we came across.
+Another win are the great working functionalities and the simple but fun visual appearance of our app.
+
+
+
+## Key Learnings/Takeaways
+
+An interesting learning for both of us during this project was to always comment our own code as much as possible to make the reasons for our choices as understandable to our collaborator as possible. 
+There was one instance during this project in which Nathalie refactored my code only for us to figure out later that this broke some functionalities.
+
+In general the project gave me a much better understanding of how React works and how to provide information between different components. It was also the first time for me to use environment variables to set a secret API key.
+
+
+
+## Bugs
+
+No bugs known.
+
+
+## Future Improvements
+
+- A more elaborate algorithm to determine the final answer (right now it is based on a simple temperature cutoff)
 - Find sunnier places in immediate proximity (right now a random place out of the top hottest places on earth is chosen)
-
+- Implement Spinner while content is loading
