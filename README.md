@@ -78,7 +78,7 @@ After being unsure of how to pass information between components to be able to i
 
 This was the first time for both of us working with forks on GitHub so we initially had some problems with pushing and pulling our versions.
 
-Sometimes sharing variables with different components proved to be quite difficult. For instance, the “Take me to the sun” button is supposed to access a random city, and check if the temperature there is hotter than at the place currently displayed, and then display the new place if it is hotter. However, the display functionality cannot easily be accessed by the button component, which is why we solved it by passing a boolean down to the button, that if it was set to true, would lead to the App.js component checking the temperature of the new place.
+Sometimes sharing variables with different components proved to be quite difficult. For instance, the "Take me to the sun" button is supposed to access a random city, and check if the temperature there is hotter than at the place currently displayed, and then display the new place if it is hotter. However, the display functionality cannot easily be accessed by the button component, which is why we solved it by passing a boolean down to the button, that if it was set to true, would lead to the App.js component checking the temperature of the new place.
 
 
 ## Wins

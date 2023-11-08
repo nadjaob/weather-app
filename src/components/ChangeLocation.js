@@ -7,7 +7,6 @@ export default function ChangeLocation( { setRegion, setMustBeHotter, resetInput
     setMustBeHotter(true)
     setRegion(hotPlaces[randomNumber])
     resetInputs()
-
   }
 
   return (
@@ -16,3 +15,4 @@ export default function ChangeLocation( { setRegion, setMustBeHotter, resetInput
     </div>
   )
 }
+
